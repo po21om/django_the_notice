@@ -1,4 +1,5 @@
-from django.db.models import Model, CharField, ImageField, IntegerField, DateField, BooleanField, ForeignKey, DO_NOTHING
+from django.db.models import \
+    Model, CharField, ImageField, IntegerField, DateField, BooleanField, ForeignKey, DO_NOTHING
 
 from accounts.models import CustomUser
 
@@ -34,10 +35,10 @@ class Notice(Model):
     price = IntegerField()
     pub_date = DateField()
     is_active = BooleanField(blank=True)
-    type_id = ForeignKey(Type, on_delete=DO_NOTHING)
-    category_id = ForeignKey(Category, on_delete=DO_NOTHING)
-    condition_id = ForeignKey(Condition, on_delete=DO_NOTHING)
-    user_id = ForeignKey(CustomUser, on_delete=DO_NOTHING)
+    type = ForeignKey(Type, on_delete=DO_NOTHING)
+    category = ForeignKey(Category, on_delete=DO_NOTHING)
+    condition = ForeignKey(Condition, on_delete=DO_NOTHING)
+    user = ForeignKey(CustomUser, on_delete=DO_NOTHING)
 
     def __str__(self):
         return self.name
