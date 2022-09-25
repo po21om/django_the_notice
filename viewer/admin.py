@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
 
-from notice.models import Notice, Type, Category, Condition
+from viewer.models import Notice, Type, Category, Condition
 
 
 # Register your models here.
