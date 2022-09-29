@@ -1,5 +1,5 @@
 from django.db.models import \
-    Model, CharField, ImageField, IntegerField, DateField, BooleanField, ForeignKey, DO_NOTHING
+    Model, CharField, ImageField, IntegerField, DateField, BooleanField, ForeignKey, TextField, DO_NOTHING
 
 from accounts.models import CustomUser
 
@@ -30,7 +30,7 @@ class Condition(Model):
 
 class Notice(Model):
     name = CharField(max_length=64)
-    description = CharField(max_length=256)
+    description = TextField()
     image = ImageField(blank=True)
     price = IntegerField()
     pub_date = DateField(auto_now_add=True)
