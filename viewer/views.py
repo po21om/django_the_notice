@@ -10,11 +10,11 @@ class NoticeList(ListView):
     pass
 
 
-class NoticeDetail(DetailView):
+class NoticeOwnList(LoginRequiredMixin, NoticeList):
     pass
 
 
-class NoticeOwnDetail(LoginRequiredMixin, DetailView):
+class NoticeDetail(DetailView):
     pass
 
 
