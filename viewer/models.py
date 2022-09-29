@@ -33,7 +33,7 @@ class Notice(Model):
     description = CharField(max_length=256)
     image = ImageField(blank=True)
     price = IntegerField()
-    pub_date = DateField()
+    pub_date = DateField(auto_now_add=True)
     is_active = BooleanField(blank=True)
     type = ForeignKey(Type, on_delete=DO_NOTHING)
     category = ForeignKey(Category, on_delete=DO_NOTHING)
