@@ -1,5 +1,6 @@
 from django.db.models import \
-    Model, CharField, ImageField, IntegerField, DateField, BooleanField, ForeignKey, TextField, DO_NOTHING
+    Model, CharField, ImageField, IntegerField, \
+    DateField, BooleanField, ForeignKey, TextField, DO_NOTHING
 
 from accounts.models import CustomUser
 
@@ -29,12 +30,16 @@ class Condition(Model):
 
 
 class Notice(Model):
+
+    def img_upload_path(instance, filename):
+        return f'{instance.user.id}/{instance}/images/{filename}'
+
     name = CharField(max_length=64)
     description = TextField()
-    image = ImageField(blank=True)
+    image = ImageField(blank=True, upload_to=img_upload_path)
     price = IntegerField()
     pub_date = DateField(auto_now_add=True)
-    is_active = BooleanField(blank=True)
+    is_active = BooleanField(blank=True, default=True)
     type = ForeignKey(Type, on_delete=DO_NOTHING)
     category = ForeignKey(Category, on_delete=DO_NOTHING)
     condition = ForeignKey(Condition, on_delete=DO_NOTHING)
@@ -42,3 +47,4 @@ class Notice(Model):
 
     def __str__(self):
         return self.name
+
