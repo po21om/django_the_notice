@@ -1,31 +1,92 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import Http404
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, CreateView
+
+from viewer.models import Notice
 
 
 # Create your views here.
 
-
+# Main page view only is_active=True
 class NoticeList(ListView):
-    pass
+    model = Notice
+    context_object_name = "notices"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["notices"] = context["notices"].filter(is_active=True)
+        context["count"] = context["notices"].count()
+
+        search_input = self.request.GET.get("search") or ""
+        if search_input:
+            context["notices"] = context["notices"].filter(title__icontains=search_input)
+
+        context["search_input"] = search_input
+        return context
 
 
-class NoticeOwnList(LoginRequiredMixin, NoticeList):
-    pass
+# Logged In User page only with users notices
+class NoticeOwnList(LoginRequiredMixin, ListView):
+    model = Notice
+    context_object_name = "own_notices"
+    template_name = "viewer/own_notice_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["own_notices"] = context["own_notices"].filter(user=self.request.user)
+        context["own_count"] = context["own_notices"].count()
+
+        search_input = self.request.GET.get("search") or ""
+        if search_input:
+            context["own_notices"] = context["own_notices"].filter(title__icontains=search_input)
+
+        context["search_input"] = search_input
+        return context
 
 
+# Details of published notice
 class NoticeDetail(DetailView):
-    pass
+    model = Notice
+    context_object_name = "notice"
+    template_name = "viewer/notice.html"
 
 
+# Creation of new notice
 class NoticeCreate(LoginRequiredMixin, CreateView):
-    pass
+    model = Notice
+    fields = ["name", "description", "image", "price", "is_active", "type", "category", "condition"]
+    success_url = reverse_lazy("tasks")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(NoticeCreate, self).form_valid(form)
 
 
+# Updating of users notice
 class NoticeUpdate(LoginRequiredMixin, UpdateView):
-    pass
+    model = Notice
+    fields = ["name", "description", "image", "price", "is_active", "type", "category", "condition"]
+    success_url = reverse_lazy("notice")
+
+    # Fix blocking logged user from accesing other users notice update option
+    def get_object(self, queryset=None):
+        notice = super(NoticeUpdate, self).get_object()
+        if notice.user != self.request.user:
+            raise Http404("Permission Denied")
+        return notice
 
 
+# Delete of notice prompt
 class NoticeDelete(LoginRequiredMixin, DetailView):
-    pass
+    model = Notice
+    context_object_name = "notice"
+    success_url = reverse_lazy("notice")
 
+    # Fix blocking logged user from accesing other users notice delete option
+    def get_object(self, queryset=None):
+        notice = super(NoticeDelete, self).get_object()
+        if notice.user != self.request.user:
+            raise Http404("Permission Denied")
+        return notice
