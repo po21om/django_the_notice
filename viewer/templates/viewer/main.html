@@ -11,9 +11,21 @@
 {#        <link rel="stylesheet" href="{% static 'base/styles.css' %}">#}
     </head>
     <body>
+        <div class="nav-bar">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a> | <a href="{%url 'own_notices' %}">My Notices</a>
+                 | <a href="{% url 'notice-create' %}"> + Add Notice</a>
+            {% else %}
+            <a href="{% url 'login' %}">Sign in</a>
+            {% endif %}
+             | <a href="{%url 'notices' %}">All Notices</a>
+
+            {% if request.path != '/' %}
+             | <a href="javascript:" onclick="history.go(-1);">&#8592; Back</a>
+            {% endif %}
+        </div>
         <div class="container">
             {% block content %}
-
 
             {% endblock %}
         </div>

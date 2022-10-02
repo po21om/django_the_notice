@@ -1,21 +1,21 @@
+{% extends "viewer/main.html" %}
+{% block content %}
+
 <h1>Main page with all notices</h1>
-
-{% if request.user.is_authenticated %}
-<a href="{% url 'logout' %}">Logout</a> |
-    <a href="{%url 'own_notices' %}">My Notices</a>
-{% else %}
-<a href="{% url 'login' %}">Sign in</a>
-{% endif %}
-
 
 <h3>There are {{count}} notice{{ count|pluralize }}</h3>
 
-
-
 {% for notice in notices %}
-    <a href="{% url 'notice' notice.id %}">{{ notice }}</a><p></p>
-
+    <div class="notice-card">
+    {% if notice.image %}
+    <a href="{% url 'notice' notice.id %}">
+        <img src="{{ notice.image.url }}" width="200" alt="image of {{ notice }}">
+    </a>
+    {% endif %}
+    <p><a href="{% url 'notice' notice.id %}">{{ notice }}</a></p>
+    </div>
 {% empty %}
 <h4>Nothing right now</h4>
 
 {% endfor %}
+{% endblock content %}
