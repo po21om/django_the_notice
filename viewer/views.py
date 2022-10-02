@@ -56,8 +56,9 @@ class NoticeDetail(DetailView):
 # Creation of new notice
 class NoticeCreate(LoginRequiredMixin, CreateView):
     model = Notice
-    fields = ["name", "description", "image", "price", "is_active", "type", "category", "condition"]
-    success_url = reverse_lazy("tasks")
+    template_name = 'viewer/notice_add.html'
+    fields = ["name", "description", "image", "price", "type", "category", "condition"]
+    success_url = reverse_lazy("own_notices")
 
     def form_valid(self, form):
         form.instance.user = self.request.user
