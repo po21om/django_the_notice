@@ -1,9 +1,11 @@
-<h1>Update a notice</h1>
+{% extends "viewer/main.html" %}
+{% block content %}
 
-<p><a href="{% url 'own_notices' %}">&#8592; Back</a></p>
+<h1>Update a notice</h1>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" class= "button" value="Update">
 </form>
+{% endblock content %}
