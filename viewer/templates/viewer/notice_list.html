@@ -3,14 +3,17 @@
 
 <h1>Main page with all notices</h1>
 
-
 <h3>There are {{count}} notice{{ count|pluralize }}</h3>
 
-
-
 {% for notice in notices %}
-    <a href="{% url 'notice' notice.id %}">{{ notice }}</a><p></p>
-
+    <div class="notice-card">
+    {% if notice.image %}
+    <a href="{% url 'notice' notice.id %}">
+        <img src="{{ notice.image.url }}" width="200" alt="image of {{ notice }}">
+    </a>
+    {% endif %}
+    <p><a href="{% url 'notice' notice.id %}">{{ notice }}</a></p>
+    </div>
 {% empty %}
 <h4>Nothing right now</h4>
 
