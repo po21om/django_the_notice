@@ -68,8 +68,9 @@ class NoticeCreate(LoginRequiredMixin, CreateView):
 # Updating of users notice
 class NoticeUpdate(LoginRequiredMixin, UpdateView):
     model = Notice
+    template_name = 'viewer/notice_update.html'
     fields = ["name", "description", "image", "price", "is_active", "type", "category", "condition"]
-    success_url = reverse_lazy("notice")
+    success_url = reverse_lazy("own_notices")
 
     # Fix blocking logged user from accesing other users notice update option
     def get_object(self, queryset=None):
