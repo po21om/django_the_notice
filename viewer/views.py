@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, UpdateView, CreateView
+from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 
 from viewer.models import Notice
 
@@ -80,12 +80,13 @@ class NoticeUpdate(LoginRequiredMixin, UpdateView):
 
 
 # Delete of notice prompt
-class NoticeDelete(LoginRequiredMixin, DetailView):
+class NoticeDelete(LoginRequiredMixin, DeleteView):
     model = Notice
     context_object_name = "notice"
-    success_url = reverse_lazy("notice")
+    template_name = "viewer/notice_confirm_delete.html"
+    success_url = reverse_lazy("own_notices")
 
-    # Fix blocking logged user from accesing other users notice delete option
+    # Fix blocking logged user from accessing other users notice delete option
     def get_object(self, queryset=None):
         notice = super(NoticeDelete, self).get_object()
         if notice.user != self.request.user:
