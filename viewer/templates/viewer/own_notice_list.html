@@ -12,7 +12,7 @@
 
 
 {% for notice in own_notices %}
-    <a href="">{{ notice }}</a><p></p>
+    <a href="{% url 'notice' notice.id %}">{{ notice }}</a><p></p>
 
 {% empty %}
 <h4>Nothing right now</h4>
