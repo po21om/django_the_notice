@@ -17,6 +17,7 @@
 {% for notice in own_notices %}
     <p>
         <a href="{% url 'notice' notice.id %}">{{ notice }}</a>
+        <a class="" href="{% url 'notice-update' notice.id %}">Edit</a>
         <a class="" href="{% url 'notice-delete' notice.id %}">&#215;</a>
     </p>
 
