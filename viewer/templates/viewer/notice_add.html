@@ -1,0 +1,8 @@
+<h1>Add a notice</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class= "button" value="Create">
+</form>
+<p><a href="{%url 'notices' %}">Go back</a></p>
