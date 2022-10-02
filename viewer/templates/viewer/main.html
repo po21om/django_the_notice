@@ -18,7 +18,10 @@
             <a href="{% url 'login' %}">Sign in</a>
             {% endif %}
              | <a href="{%url 'notices' %}">All Notices</a>
+
+            {% if request.path != '/' %}
              | <a href="javascript:" onclick="history.go(-1);">&#8592; Back</a>
+            {% endif %}
         </div>
         <div class="container">
             {% block content %}
