@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 
-from viewer.models import Notice
+from viewer.models import Notice, Category, Type, Condition
 
 
 # Create your views here.
@@ -18,8 +18,24 @@ class NoticeList(ListView):
         context = super().get_context_data(**kwargs)
         context["notices"] = context["notices"].filter(is_active=True)
         context["count"] = context["notices"].count()
+        context["categories"] = Category.objects.order_by('name').all()
+        context["types"] = Type.objects.order_by('name').all()
+        context["conditions"] = Condition.objects.order_by('name').all()
 
         search_input = self.request.GET.get("search") or ""
+        category_input = self.request.GET.get("category") or ""
+        type_input = self.request.GET.get("type") or ""
+        condition_input = self.request.GET.get("condition") or ""
+
+        if category_input:
+            context["notices"] = context["notices"].filter(category=category_input)
+
+        if type_input:
+            context["notices"] = context["notices"].filter(type=type_input)
+
+        if condition_input:
+            context["notices"] = context["notices"].filter(condition=condition_input)
+
         if search_input:
             context["notices"] = context["notices"].filter(name__icontains=search_input)
 

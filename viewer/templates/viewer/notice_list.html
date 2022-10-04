@@ -4,10 +4,34 @@
 <h1>Main page with all notices</h1>
 
 <h3>There are {{count}} notice{{ count|pluralize }}</h3>
+
 <div class="">
     <form method="get">
-        <input type="text" name="search" value="{{search_input}}" placeholder="Here you can enter what you're looking
-         for...">
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            <option value="">All</option>
+            {% for category in categories %}
+                <option value="{{category.id}}">{{category.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="type">Type:</label>
+        <select name="type" id="type">
+            <option value="">All</option>
+            {% for type in types %}
+                <option value="{{type.id}}">{{type.name}}</option>
+            {% endfor %}
+        </select>
+
+        <label for="condition">Condition:</label>
+        <select name="condition" id="condition">
+            <option value="">All</option>
+            {% for condition in conditions %}
+                <option value="{{condition.id}}">{{condition.name}}</option>
+            {% endfor %}
+        </select>
+
+        <input type="text" name="search" value="{{search_input}}" placeholder="Input search phrase...">
         <input class="button" type="submit" value="Search" />
     </form>
     <form method="get">
