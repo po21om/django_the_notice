@@ -21,7 +21,7 @@ class NoticeList(ListView):
 
         search_input = self.request.GET.get("search") or ""
         if search_input:
-            context["notices"] = context["notices"].filter(title__icontains=search_input)
+            context["notices"] = context["notices"].filter(name__icontains=search_input)
 
         context["search_input"] = search_input
         return context
@@ -40,7 +40,7 @@ class NoticeOwnList(LoginRequiredMixin, ListView):
 
         search_input = self.request.GET.get("search") or ""
         if search_input:
-            context["own_notices"] = context["own_notices"].filter(title__icontains=search_input)
+            context["own_notices"] = context["own_notices"].filter(name__icontains=search_input)
 
         context["search_input"] = search_input
         return context
