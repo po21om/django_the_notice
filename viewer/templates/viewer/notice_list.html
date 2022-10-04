@@ -4,6 +4,18 @@
 <h1>Main page with all notices</h1>
 
 <h3>There are {{count}} notice{{ count|pluralize }}</h3>
+<div class="">
+    <form method="get">
+        <input type="text" name="search" value="{{search_input}}" placeholder="Here you can enter what you're looking
+         for...">
+        <input class="button" type="submit" value="Search" />
+    </form>
+    <form method="get">
+        <input type="hidden" name="search" value="">
+        <input class="button" type="submit" value="Show all" />
+    </form>
+</div>
+
 
 {% for notice in notices %}
     <div class="notice-card">
