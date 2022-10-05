@@ -1,3 +1,7 @@
+@import "normalize.css";
+@import "header.css";
+@import "search.css";
+
 :root {
     --white: #fafafa;
     --blue: #3d90e3;
@@ -11,74 +15,5 @@
 body {
     background-color: var(--white);
     font-family: "Open Sans", sans-serif;
-}
-
-.header {
-    background-color: var(--white);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-}
-
-.container {
-    max-width: 720px;
-    margin: 72px auto auto;
-}
-
-.nav-bar {
-    height: 58px;
-    margin: auto;
-    max-width: 720px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--light-grey);
-}
-
-.nav-bar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-bar li {
-    display: inline;
-}
-
-.nav-bar a {
-    display: block;
-    color: var(--grey);
-    padding: 17px 0;
-    margin: 10px;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 0;
-    border-bottom: 2px solid var(--white);
-
-
-}
-
-.nav-bar-l a:hover{
-    color: var(--black);
-    border-bottom: 2px solid var(--blue);
-}
-
-.nav-bar-r a:hover{
-    color: var(--black);
-    border-bottom: 2px solid var(--red);
-}
-
-.logo a {
-    margin: 0;
-    padding: 0;
-}
-
-.nav-bar-l li {
-    float: left;
-}
-.nav-bar-r li {
-    float: left;
 }
 

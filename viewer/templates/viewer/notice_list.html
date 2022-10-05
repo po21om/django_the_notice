@@ -1,51 +1,60 @@
 {% extends "viewer/main.html" %}
 {% block content %}
 
-<h1>Main page with all notices</h1>
-
-<h3>There are {{count}} notice{{ count|pluralize }}</h3>
-
-<div class="">
+<section class="search-header">
+    <div class="search-wrapper">
     <form method="get">
+    <div class="search">
+        <div class="select">
         <label for="category">Category:</label>
-        <select name="category" id="category">
-            <option value="">All</option>
-            {% for category in categories %}
-                <option value="{{category.id}}">{{category.name}}</option>
-            {% endfor %}
-        </select>
 
+                <select name="category" id="category">
+                    <option value="">All</option>
+                    {% for category in categories %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        <div class="select">
         <label for="type">Type:</label>
-        <select name="type" id="type">
-            <option value="">All</option>
-            {% for type in types %}
-                <option value="{{type.id}}">{{type.name}}</option>
-            {% endfor %}
-        </select>
 
+                <select name="type" id="type">
+                    <option value="">All</option>
+                    {% for type in types %}
+                    <option value="{{type.id}}">{{type.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        <div class="select">
         <label for="condition">Condition:</label>
-        <select name="condition" id="condition">
-            <option value="">All</option>
-            {% for condition in conditions %}
-                <option value="{{condition.id}}">{{condition.name}}</option>
-            {% endfor %}
-        </select>
 
+                <select name="condition" id="condition">
+                    <option value="">All</option>
+                    {% for condition in conditions %}
+                    <option value="{{condition.id}}">{{condition.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
         <input type="text" name="search" value="{{search_input}}" placeholder="Input search phrase...">
         <input class="button" type="submit" value="Search" />
+    </div>
+
     </form>
     <form method="get">
         <input type="hidden" name="search" value="">
         <input class="button" type="submit" value="Show all" />
+
     </form>
-</div>
+    </div>
+    <div class="count">There are {{count}} notice{{ count|pluralize }}</div>
+</section>
 
-
+<section class="notice-cards">
 {% for notice in notices %}
     <div class="notice-card">
     {% if notice.image %}
     <a href="{% url 'notice' notice.id %}">
-        <img src="{{ notice.image.url }}" width="200" alt="image of {{ notice }}">
+        <img src="{{ notice.image.url }}" width="200" alt="Image of {{ notice }}">
     </a>
     {% endif %}
     <p><a href="{% url 'notice' notice.id %}">{{ notice }}</a></p>
@@ -54,4 +63,5 @@
 <h4>Nothing right now</h4>
 
 {% endfor %}
+</section>
 {% endblock content %}
