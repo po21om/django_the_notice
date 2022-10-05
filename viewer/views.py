@@ -69,6 +69,9 @@ class UsersNotices(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["categories"] = Category.objects.order_by('name').all()
+        context["types"] = Type.objects.order_by('name').all()
+        context["conditions"] = Condition.objects.order_by('name').all()
         context["notices_user"] = context["notices_user"].filter(user=self.kwargs['pk'])
         context["notices_user"] = context["notices_user"].filter(is_active=True)
         context["user_notices_count"] = context["notices_user"].count()
