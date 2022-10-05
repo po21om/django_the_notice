@@ -1,23 +1,23 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X_UA-Compatible" content="IE=edge">
         <title>the Notice</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'viewer/style.css' %}">
+        <link rel="shortcut icon" type="image/png" href="{% static 'viewer/favicon.ico' %}"/>
     </head>
     <body>
         <section class="header">
         <div class="nav-bar">
             <div class="logo">
                 <a href="{%url 'notices' %}">
-                    <img src="{% static 'viewer/images/logo_139x64-164e87.png' %}" alt="the Notice logo">
+                    <img src="{% static 'viewer/images/logo_125x50.png' %}" alt="the Notice logo">
                 </a>
             </div>
             <div class="nav-bar-l">
