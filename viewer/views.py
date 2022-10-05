@@ -62,6 +62,24 @@ class NoticeOwnList(LoginRequiredMixin, ListView):
         return context
 
 
+class UsersNotices(ListView):
+    model = Notice
+    context_object_name = "notices_user"
+    template_name = 'viewer/user_notices.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["notices_user"] = context["notices_user"].filter(user=self.kwargs['pk'])
+        context["notices_user"] = context["notices_user"].filter(is_active=True)
+        context["user_notices_count"] = context["notices_user"].count()
+        search_input = self.request.GET.get("search") or ""
+        if search_input:
+            context["notices_user"] = context["notices_user"].filter(name__icontains=search_input)
+
+        context["search_input"] = search_input
+        return context
+
+
 # Details of published notice
 class NoticeDetail(DetailView):
     model = Notice
