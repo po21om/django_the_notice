@@ -1,6 +1,7 @@
 @import "normalize.css";
 @import "header.css";
 @import "search.css";
+@import "cards.css";
 
 :root {
     --white: #fafafa;
