@@ -17,7 +17,6 @@ class NoticeList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["notices"] = context["notices"].filter(is_active=True)
-        context["count"] = context["notices"].count()
         context["categories"] = Category.objects.order_by('name').all()
         context["types"] = Type.objects.order_by('name').all()
         context["conditions"] = Condition.objects.order_by('name').all()
@@ -40,6 +39,7 @@ class NoticeList(ListView):
             context["notices"] = context["notices"].filter(name__icontains=search_input)
 
         context["search_input"] = search_input
+        context["count"] = context["notices"].count()
         return context
 
 
