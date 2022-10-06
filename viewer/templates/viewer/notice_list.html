@@ -51,14 +51,14 @@
 
 <section class="notice-cards">
 {% for notice in notices %}
-    <a href="{% url 'notice' notice.id %}">
+    <a href="{% url 'notice' notice.id %}" title="{{ notice.name }}">
     <div class="notice-card">
     {% if notice.image %}
         <img src="{{ notice.image.url }}" alt="Image of {{ notice }}">
     {% else %}
         <img src="https://plchldr.co/i/180x180?&bg=164e87&fc=fafafa&text=Image unavailable" alt="Image unavailable">
     {% endif %}
-        <h4>{{ notice.name }}</h4>
+        <h4>{{ notice.name|truncatechars:26 }}</h4>
     {% if notice.price %}
         <h4>${{ notice.price }}</h4>
     {% endif %}

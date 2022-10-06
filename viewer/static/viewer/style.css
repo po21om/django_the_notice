@@ -3,7 +3,7 @@
 @import "search.css";
 @import "cards.css";
 @import "details.css";
-
+@import "table.css";
 
 :root {
     --white: #fafafa;

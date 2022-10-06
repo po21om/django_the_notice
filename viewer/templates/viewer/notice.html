@@ -17,15 +17,19 @@
 <h3><span class="titles">Price:</span> ${{ notice.price }}</h3>
 <h3><span class="titles">Description:</span>
 <p id="description">{{ notice.description }}</p></h3>
-<a href="{% url 'notices_user' notice.user.id %}"><h5>More offers from {{ notice.user.username }}</h5></a>
+<div class="buttons">
+<a href="{% url 'notices_user' notice.user.id %}">
+    <div class="detail-button more">More offers from {{ notice.user.username }}</div>
+</a>
 
 <a href="javascript:" onClick="document.getElementById('contact').style.display='block';">
-    <div id="reveal-button">Reveal contact information</div>
+    <div class="detail-button reveal">Reveal contact information</div>
 </a>
+    </div>
     <div id="contact">
 {#        <h4>{{ notice.user.first_name }} {{ notice.user.last_name }}</h4>#}
-        <h5>&#9742 {{ notice.user.phone_number }}</h5>
-        <h5>&#9993 {{ notice.user.postal_code}} {{ notice.user.town_name }}</h5>
+        <h4><a href="tel:{{ notice.user.phone_number }}">&#9990; {{ notice.user.phone_number }}</a></h4>
+        <h4>&#9993 {{ notice.user.postal_code}} {{ notice.user.town_name }}</h4>
     </div>
 </div>
 </section>

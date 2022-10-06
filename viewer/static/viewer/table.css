@@ -1,0 +1,57 @@
+.table
+{
+    display:table;
+    width: 800px;
+
+}
+
+.table-row
+{
+    display: table-row;
+    width: 100%;
+    height: 24px;
+
+}
+
+.table-cell
+{
+    display: table-cell;
+    height: 80px;
+    padding: 5px;
+    vertical-align: middle;
+
+
+}
+
+.table-cell img {
+    object-fit: cover;
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+
+}
+
+.not-active {
+    opacity: .50;
+}
+
+.cell-add {
+
+}
+
+.cell-title {
+    width: 500px;
+}
+
+.cell-add, .cell-edit, .cell-delete {
+    width: 80px;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.cell-edit {
+    color: var(--navy);
+}
+.cell-delete{
+    color: var(--red);
+}
