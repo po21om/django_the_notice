@@ -2,6 +2,8 @@
 @import "header.css";
 @import "search.css";
 @import "cards.css";
+@import "details.css";
+
 
 :root {
     --white: #fafafa;
