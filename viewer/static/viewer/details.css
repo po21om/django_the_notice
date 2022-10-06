@@ -31,23 +31,38 @@
 #description {
     text-align: justify;
 }
-
-#reveal-button {
-    width: 200px;
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+.detail-button {
+    width: 150px;
     height: 48px;
-    margin: 0 90px;
     text-decoration: none;
     text-align: center;
-    border: var(--navy) solid 2px;
     border-radius: 5px;
     display: flex;
     align-items: center;
-
 }
 
-#reveal-button:hover {
-    background-color: #164e87;
-    color: #fafafa;
+.detail-button:hover {
+    color: var(--white);
+}
+
+.more {
+    border: var(--blue) solid 2px;
+}
+
+.more:hover {
+    background-color: var(--blue);
+}
+
+.reveal {
+    border: var(--navy) solid 2px;
+}
+
+.reveal:hover {
+    background-color: var(--navy);
 }
 
 a {
