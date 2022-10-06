@@ -1,24 +1,32 @@
 {% extends "viewer/main.html" %}
 {% block content %}
 
-<h1>Notice: {{notice}}</h1>
-
+<section class="notice-detail">
+<div class="notice-image">
 {% if notice.image %}
-    <img src="{{ notice.image.url }}" alt="" width="400">
+    <img src="{{ notice.image.url }}" alt="Image of {{ notice.name }}" width="380">
+{% else %}
+    <img src="https://plchldr.co/i/380x380?&bg=3d90e3&fc=fafafa&text=Image unavailable" alt="Image unavailable">
 {% endif %}
-
-<h2>Category: {{ notice.category }}</h2>
-<h2>Type: {{ notice.type }}</h2>
-<h2>Condition: {{ notice.condition }}</h2>
-<h3>Price: {{ notice.price }} $</h3>
-<p>{{ notice.description }}</p>
-<h6>More offers from <a href="{% url 'notices_user' notice.user.id %}">{{ notice.user.username }}</a></h6>
-<a href="javascript:" onClick="document.getElementById('contact').style.display='block';">Reveal contact
-    information</a>
-<div id="contact" style="display:none;">
-<h4>{{ notice.user.first_name }} {{ notice.user.last_name }}</h4>
-<h5>{{ notice.user.phone_number }}</h5>
-<h5>{{ notice.user.postal_code}} {{ notice.user.town_name }}</h5>
 </div>
+<div class="notice-info">
+    <h1>{{notice}}</h1>
+<h3><span class="titles">Category:</span> {{ notice.category }}</h3>
+<h3><span class="titles">Type:</span> {{ notice.type }}</h3>
+<h3><span class="titles">Condition:</span> {{ notice.condition }}</h3>
+<h3><span class="titles">Price:</span> ${{ notice.price }}</h3>
+<h3><span class="titles">Description:</span>
+<p id="description">{{ notice.description }}</p></h3>
+<a href="{% url 'notices_user' notice.user.id %}"><h5>More offers from {{ notice.user.username }}</h5></a>
 
+<a href="javascript:" onClick="document.getElementById('contact').style.display='block';">
+    <div id="reveal-button">Reveal contact information</div>
+</a>
+    <div id="contact">
+{#        <h4>{{ notice.user.first_name }} {{ notice.user.last_name }}</h4>#}
+        <h5>&#9742 {{ notice.user.phone_number }}</h5>
+        <h5>&#9993 {{ notice.user.postal_code}} {{ notice.user.town_name }}</h5>
+    </div>
+</div>
+</section>
 {% endblock content %}
