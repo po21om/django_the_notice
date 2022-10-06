@@ -63,6 +63,8 @@
     <a href="{% url 'notice' notice.id %}">
         <img src="{{ notice.image.url }}" width="200" alt="image of {{ notice }}">
     </a>
+        {% else %}
+        <img src="https://plchldr.co/i/180x180?&bg=164e87&fc=fafafa&text=Image unavailable" alt="Image unavailable">
     {% endif %}
     <p><a href="{% url 'notice' notice.id %}">{{ notice }}</a></p>
     </div>
