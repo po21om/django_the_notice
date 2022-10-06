@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from .views import NoticeList, NoticeDetail, NoticeCreate, NoticeUpdate, NoticeDelete, NoticeOwnList
+from .views import NoticeList, NoticeDetail, NoticeCreate, NoticeUpdate, NoticeDelete, NoticeOwnList, UsersNotices
 
 urlpatterns = [
     path("", NoticeList.as_view(), name="notices"),
@@ -10,6 +10,7 @@ urlpatterns = [
     path("notice-create/", NoticeCreate.as_view(), name="notice-create"),
     path("notice-update/<int:pk>", NoticeUpdate.as_view(), name="notice-update"),
     path("notice-delete/<int:pk>", NoticeDelete.as_view(), name="notice-delete"),
+    path('notices-user/<int:pk>', UsersNotices.as_view(), name='notices_user'),
 ]
 
 if settings.DEBUG:
