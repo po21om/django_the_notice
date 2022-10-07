@@ -8,11 +8,6 @@
     overflow: hidden;
 }
 
-.container {
-    max-width: 800px;
-    margin: 72px auto auto;
-}
-
 .nav-bar {
     height: 58px;
     margin: auto;
