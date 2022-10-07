@@ -1,31 +1,29 @@
 .welcome {
     text-align: center;
-    width: 800px;
+    max-width: 800px;
+    width: 100%;
 }
 
 .table
 {
     display:table;
-    width: 800px;
-
+    width: 100%;
 }
 
 .table-row
 {
     display: table-row;
     width: 100%;
-    height: 24px;
-    border-top: 1px solid var(--light-grey);
+    height: 90px;
 }
 
 .table-cell
 {
     display: table-cell;
-    height: 80px;
+    height: 90px;
     padding: 5px;
     vertical-align: middle;
-
-
+    border-top: 1px solid var(--light-grey);
 }
 
 .table-cell img {
@@ -33,7 +31,6 @@
     width: 80px;
     height: 80px;
     border-radius: 5px;
-
 }
 
 .not-active {
@@ -41,11 +38,11 @@
 }
 
 .cell-add {
-
+    border-top: 0;
 }
 
 .cell-title {
-    width: 500px;
+    width: 520px;
 }
 
 .cell-add, .cell-edit, .cell-delete {
