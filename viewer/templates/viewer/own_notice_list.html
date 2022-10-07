@@ -1,12 +1,10 @@
 {% extends "viewer/main.html" %}
 {% block content %}
 
-<h2>Hello {{request.user|title}}</h2>
+<div class="welcome">
+<h3>Hello, {{request.user|title}}. You have {{own_count}} notice{{ own_count|pluralize }}</h3>
+</div>
 
-
-<h3>You have {{own_count}} notice{{ own_count|pluralize }}</h3>
-
-{#<a href="{% url 'notice-create' %}">+</a>#}
 <div class="table">
     <div class="table-row">
         <a href="{% url 'notice-create' %}" title="Add">
@@ -16,23 +14,9 @@
 {% for notice in own_notices %}
     {% if notice.is_active %}
     <div class="table-row">
-        <a href="{% url 'notice' notice.id %}" title="View">
-            <div class="table-cell cell-img">
-                {% if notice.image %}
-                    <img src="{{ notice.image.url }}" alt="Image of {{ notice.name }}" width="80" >
-                    {% else %}
-                    <img src="https://plchldr.co/i/80x80?&bg=3d90e3&fc=fafafa&text=Image unavailable" alt="Image unavailable">
-                {% endif %}</div></a>
-        <a href="{% url 'notice' notice.id %}" title="View"><div class="table-cell cell-title"
-        >{{ notice }}</div></a>
-        <a href="{% url 'notice-update' notice.id %}" title="Edit"><div class="table-cell cell-edit">&#x270E;
-        </div></a>
-        <a href="{% url 'notice-delete' notice.id %}" title="Delete"><div
-                class="table-cell cell-delete">&#10006;
-        </div></a>
-    </div>
     {% else %}
-                        <div class="table-row not-active">
+    <div class="table-row not-active">
+    {% endif %}
         <a href="{% url 'notice' notice.id %}" title="View">
             <div class="table-cell cell-img">
                 {% if notice.image %}
@@ -48,8 +32,7 @@
                 class="table-cell cell-delete">&#10006;
         </div></a>
     </div>
-                        {% endif %}
-{% empty %}
+    {% empty %}
     </div>
 <h4>Nothing right now</h4>
 
