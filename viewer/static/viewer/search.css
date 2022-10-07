@@ -7,6 +7,7 @@
     width: 100%;
     border-bottom: 1px solid var(--light-grey);
     background-color: var(--white);
+    z-index: 1;
 }
 .search-wrapper {
     display: flex;
