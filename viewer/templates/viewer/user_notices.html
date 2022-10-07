@@ -47,7 +47,7 @@
     </form>
     </div>
 <div class="count">
-    There are {{user_notices_count}} notice {{ user_notices_count|pluralize }} from user:&nbsp;
+    There are {{user_notices_count}} notice{{ user_notices_count|pluralize }} from user:&nbsp;
 {% for notice in notices_user %}
     {% if forloop.first %}
          <b>{{ notice.user.username|title }}</b>
