@@ -5,8 +5,8 @@
     justify-content: left;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 64px auto auto;
 }
-
 .notice-cards a {
     text-decoration: none;
     color: var(--grey);
