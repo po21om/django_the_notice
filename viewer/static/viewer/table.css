@@ -1,3 +1,8 @@
+.welcome {
+    text-align: center;
+    width: 800px;
+}
+
 .table
 {
     display:table;
@@ -10,7 +15,7 @@
     display: table-row;
     width: 100%;
     height: 24px;
-
+    border-top: 1px solid var(--light-grey);
 }
 
 .table-cell
@@ -47,6 +52,9 @@
     width: 80px;
     font-size: xx-large;
     text-align: center;
+}
+.cell-add {
+    color: var(--blue);
 }
 
 .cell-edit {

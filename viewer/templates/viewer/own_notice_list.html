@@ -1,10 +1,9 @@
 {% extends "viewer/main.html" %}
 {% block content %}
 
-<h2>Hello {{request.user|title}}</h2>
-
-
-<h3>You have {{own_count}} notice{{ own_count|pluralize }}</h3>
+<div class="welcome">
+<h3>Hello, {{request.user|title}}. You have {{own_count}} notice{{ own_count|pluralize }}</h3>
+</div>
 
 <div class="table">
     <div class="table-row">
