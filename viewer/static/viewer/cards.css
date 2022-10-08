@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     align-items: start;
-    justify-content: left;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 64px auto auto;
