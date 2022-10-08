@@ -7,7 +7,7 @@
 .table
 {
     display:table;
-    width: 100%;
+    margin: 0 auto;
 }
 
 .table-row
@@ -15,6 +15,7 @@
     display: table-row;
     width: 100%;
     height: 90px;
+    justify-content: center;
 }
 
 .table-cell
@@ -42,7 +43,7 @@
 }
 
 .cell-title {
-    width: 520px;
+    width: 400px;
 }
 
 .cell-add, .cell-edit, .cell-delete {
