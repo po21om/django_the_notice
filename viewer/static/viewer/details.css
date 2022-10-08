@@ -74,3 +74,8 @@ a {
     display: none;
     text-align: center;
 }
+
+.not-signed-in {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
