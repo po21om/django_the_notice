@@ -47,10 +47,10 @@
     </form>
     </div>
 <div class="count">
-    There are {{user_notices_count}} notice {{ user_notices_count|pluralize }} from user:&nbsp;
+    There are {{user_notices_count}} notice{{ user_notices_count|pluralize }} from user
 {% for notice in notices_user %}
     {% if forloop.first %}
-         <b>{{ notice.user.username|title }}</b>
+        : <b>{{ notice.user.username|title }}</b>
     {%endif%}
 {%endfor%}
 </div>
@@ -58,16 +58,19 @@
 
 <section class="notice-cards">
 {% for notice in notices_user %}
+    <a href="{% url 'notice' notice.id %}" title="{{ notice.name|title }}">
     <div class="notice-card">
     {% if notice.image %}
-    <a href="{% url 'notice' notice.id %}">
-        <img src="{{ notice.image.url }}" width="200" alt="image of {{ notice }}">
-    </a>
+        <img src="{{ notice.image.url }}" alt="image of {{ notice.name|title }}">
         {% else %}
         <img src="https://plchldr.co/i/180x180?&bg=164e87&fc=fafafa&text=Image unavailable" alt="Image unavailable">
     {% endif %}
-    <p><a href="{% url 'notice' notice.id %}">{{ notice }}</a></p>
+        <h4>{{ notice.name|title|truncatechars:26 }}</h4>
+    {% if notice.price %}
+        <h4>${{ notice.price }}</h4>
+    {% endif %}
     </div>
+    </a>
 {% empty %}
 <h4>Nothing right now</h4>
 

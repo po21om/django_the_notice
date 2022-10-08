@@ -16,7 +16,7 @@ class NoticeList(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["notices"] = context["notices"].filter(is_active=True)
+        context["notices"] = context["notices"].filter(is_active=True).order_by('-pk')
         context["categories"] = Category.objects.order_by('name').all()
         context["types"] = Type.objects.order_by('name').all()
         context["conditions"] = Condition.objects.order_by('name').all()
@@ -73,13 +73,27 @@ class UsersNotices(ListView):
         context["types"] = Type.objects.order_by('name').all()
         context["conditions"] = Condition.objects.order_by('name').all()
         context["notices_user"] = context["notices_user"].filter(user=self.kwargs['pk'])
-        context["notices_user"] = context["notices_user"].filter(is_active=True)
-        context["user_notices_count"] = context["notices_user"].count()
+        context["notices_user"] = context["notices_user"].filter(is_active=True).order_by('-pk')
+
         search_input = self.request.GET.get("search") or ""
+        category_input = self.request.GET.get("category") or ""
+        type_input = self.request.GET.get("type") or ""
+        condition_input = self.request.GET.get("condition") or ""
+
+        if category_input:
+            context["notices_user"] = context["notices_user"].filter(category=category_input)
+
+        if type_input:
+            context["notices_user"] = context["notices_user"].filter(type=type_input)
+
+        if condition_input:
+            context["notices_user"] = context["notices_user"].filter(condition=condition_input)
+
         if search_input:
             context["notices_user"] = context["notices_user"].filter(name__icontains=search_input)
 
         context["search_input"] = search_input
+        context["user_notices_count"] = context["notices_user"].count()
         return context
 
 
