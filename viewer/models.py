@@ -32,7 +32,7 @@ class Condition(Model):
 class Notice(Model):
 
     def img_upload_path(instance, filename):
-        return f'{instance.user.id}/{instance}/images/{filename}'
+        return f'{instance.user.id}/images/{filename}'
 
     name = CharField(max_length=64)
     description = TextField()
