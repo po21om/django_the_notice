@@ -1,44 +1,8 @@
 @import "normalize.css";
+@import "colors.css";
+@import "main.css";
 @import "header.css";
 @import "search.css";
 @import "cards.css";
 @import "details.css";
 @import "table.css";
-
-:root {
-    --white: #fafafa;
-    --blue: #3d90e3;
-    --navy: #164e87;
-    --red: #c11b17;
-    --light-grey: #cccccc;
-    --grey: #333333 ;
-    --black: #000000 ;
-}
-
-body {
-    background-color: var(--white);
-    font-family: "Open Sans", sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.container {
-    max-width: 800px;
-    width: 100%;
-    margin: 72px auto auto;
-}
-
-footer {
-    min-height: 24px;
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-    font-size: small;
-    border-top: 1px solid var(--light-grey);
-    padding-top: 8px;
-}
-
-footer span{
-    font-weight: bold;
-}
