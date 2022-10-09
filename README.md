@@ -157,7 +157,7 @@ It could also be used for D&D players wanting to pass on or expand they figurine
 
 - [x] MVP (Minimal Viable Product)
 - [x] Search
-- [ ] Login back redirection
+- [x] Login / Logout back redirection
 - [ ] Pagination
 - [ ] Code refactor with Accessibility in mind
 
