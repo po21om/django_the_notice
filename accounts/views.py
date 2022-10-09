@@ -1,7 +1,7 @@
 from django.contrib.auth import login, get_user_model
 from .forms import CustomUserCreationForm
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 
@@ -15,8 +15,10 @@ class CustomLoginView(LoginView):
     fields = "__all__"
     redirect_authenticated_user = True
 
-    def get_success_url(self) -> str:
-        return reverse_lazy("own_notices")
+    # def get_success_url(self) -> str:
+    #     if 'next':
+    #         return redirect('next')
+    #     return reverse_lazy("own_notices")
 
 
 class RegisterView(FormView):
