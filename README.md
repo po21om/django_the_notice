@@ -91,7 +91,7 @@
 'the Notice' web app is our Python from Scratch course finishing project. It's a notice app for users to publish and 
 read other users notices for selling / buying / renting / other services. It offers an ability to search through 
 notices, publish / edit / delete / activate your own notices and an ability to reveal contact information 
-to other users (only to registered users - RODO).
+to other users (only to registered users - with accordance to RODO).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,6 +157,7 @@ It could also be used for D&D players wanting to pass on or expand they figurine
 
 - [x] MVP (Minimal Viable Product)
 - [x] Search
+- [ ] Login back redirection
 - [ ] Pagination
 - [ ] Code refactor with Accessibility in mind
 
@@ -198,9 +199,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Piotr Kurzak - [piotr.kurzak@gmail.com](mailto:piotr.kurzak@gmail.com)
 
-Kamil Wolak - [mail](mailto:)
+Kamil Wolak - [wolus24@gmail.com](mailto:wolus24@gmail.com)
 
-Piotr Czarkowski - [mail](mailto:)
+Piotr Czarkowski - [p.st.czarkowski@gmail.com](mailto:p.st.czarkowski@gmail.com)
 
 Krzysztof Grzesiak - [mail](mailto:)
 
@@ -214,7 +215,7 @@ Project Link: [https://github.com/po21om/django_the_notice](https://github.com/p
 ## Acknowledgments
 
 * [SDA](https://www.sdacademy.pl)
-* [Beata Zalewa](https://www.zalnet.com.pl)
+* [Beata Zalewa](https://www.linkedin.com/in/beatazalewa/)
 * [Othneil Drew](https://github.com/othneildrew/Best-README-Template)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -236,12 +237,12 @@ Project Link: [https://github.com/po21om/django_the_notice](https://github.com/p
 [linkedin-shield1]: https://img.shields.io/badge/-Piotr.Kurzak-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url1]: https://linkedin.com/in/piotr-kurzak
 [linkedin-shield2]: https://img.shields.io/badge/-Kamil.Wolak-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url2]: https://linkedin.com/in/
+[linkedin-url2]: https://linkedin.com/in/wolakkamil/
 [linkedin-shield3]: https://img.shields.io/badge/-Piotr.Czarkowski-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url3]: https://linkedin.com/in/
+[linkedin-url3]: https://linkedin.com/in/piotr-czarkowski
 [linkedin-shield4]: https://img.shields.io/badge/-Krzysztof.Grzesiak-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url4]: https://linkedin.com/in/
-[product-screenshot]: images/screenshot.png
+[linkedin-url4]: https://linkedin.com/in/krzysztof-grzesiak/
+[product-screenshot]: viewer/static/viewer/images/screenshot.jpg
 [Django]: https://img.shields.io/badge/django-000000?style=for-the-badge&logo=django&logoColor=lightgreen
 [Django-url]: https://www.djangoproject.com/
 [Python]: https://img.shields.io/badge/python-000000?style=for-the-badge&logo=python&logoColor=yellow
