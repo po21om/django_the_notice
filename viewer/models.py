@@ -1,3 +1,4 @@
+from django.db import models
 from django.db.models import \
     Model, CharField, ImageField, IntegerField, \
     DateField, BooleanField, ForeignKey, TextField, DO_NOTHING
@@ -37,7 +38,7 @@ class Notice(Model):
     name = CharField(max_length=64)
     description = TextField()
     image = ImageField(blank=True, upload_to=img_upload_path)
-    price = IntegerField()
+    price = models.PositiveIntegerField()
     pub_date = DateField(auto_now_add=True)
     is_active = BooleanField(blank=True, default=True)
     type = ForeignKey(Type, on_delete=DO_NOTHING)
