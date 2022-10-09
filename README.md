@@ -201,9 +201,9 @@ Piotr Kurzak - [piotr.kurzak@gmail.com](mailto:piotr.kurzak@gmail.com)
 
 Kamil Wolak - [wolus24@gmail.com](mailto:wolus24@gmail.com)
 
-Piotr Czarkowski - [p.st.czarkowski@gmail.com](mailto:p.st.czarkowski@gmail.com)
+Piotr Czarkowski - [p.s.czarkowski@gmail.com](mailto:p.s.czarkowski@gmail.com)
 
-Krzysztof Grzesiak - [mail](mailto:)
+Krzysztof Grzesiak - [chris_gd@interia.pl](mailto:chris_gd@interia.pl)
 
 Project Link: [https://github.com/po21om/django_the_notice](https://github.com/po21om/django_the_notice)
 
@@ -235,11 +235,11 @@ Project Link: [https://github.com/po21om/django_the_notice](https://github.com/p
 [license-shield]: https://img.shields.io/github/license/po21om/django_the_notice.svg?style=for-the-badge
 [license-url]: https://github.com/po21om/django_the_notice/blob/master/LICENSE.txt
 [linkedin-shield1]: https://img.shields.io/badge/-Piotr.Kurzak-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url1]: https://linkedin.com/in/piotr-kurzak
+[linkedin-url1]: https://linkedin.com/in/piotr-kurzak/
 [linkedin-shield2]: https://img.shields.io/badge/-Kamil.Wolak-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url2]: https://linkedin.com/in/wolakkamil/
 [linkedin-shield3]: https://img.shields.io/badge/-Piotr.Czarkowski-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url3]: https://linkedin.com/in/piotr-czarkowski
+[linkedin-url3]: https://linkedin.com/in/piotr-czarkowski/
 [linkedin-shield4]: https://img.shields.io/badge/-Krzysztof.Grzesiak-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url4]: https://linkedin.com/in/krzysztof-grzesiak/
 [product-screenshot]: viewer/static/viewer/images/screenshot.jpg
