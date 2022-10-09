@@ -25,7 +25,7 @@ urlpatterns = [
     path("", include("accounts.urls")),
     path("", include("viewer.urls")),
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
-    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    re_path(r'^viewer/static/viewer/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 
 ]
 
