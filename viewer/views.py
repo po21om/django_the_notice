@@ -144,3 +144,11 @@ class NoticeDelete(LoginRequiredMixin, DeleteView):
         if notice.user != self.request.user:
             raise Http404("Permission Denied")
         return notice
+
+
+def error_404(request, exception):
+    return render(request, 'viewer/notfound.html')
+
+
+def error_500(request):
+    return render(request, 'viewer/notfound.html')
