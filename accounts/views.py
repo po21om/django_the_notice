@@ -15,11 +15,6 @@ class CustomLoginView(LoginView):
     fields = "__all__"
     redirect_authenticated_user = True
 
-    # def get_success_url(self) -> str:
-    #     if 'next':
-    #         return redirect('next')
-    #     return reverse_lazy("own_notices")
-
 
 class RegisterView(FormView):
     template_name = "viewer/register.html"
