@@ -1,5 +1,6 @@
 {% extends "viewer/main.html" %}
 {% block content %}
+{% load pagination %}
 
 <section class="search-header">
     <div class="search-wrapper">
@@ -76,4 +77,16 @@
 
 {% endfor %}
 </section>
+{#pagination    #}
+
+<section>
+{% if user_paginated_notices.has_previous %}
+    <a href="{% relative_url user_paginated_notices.previous_page_number 'page' request.GET.urlencode %}"><button>Previous page</button></a>
+{% endif %}
+{{ user_paginated_notices.number }} of {{ user_paginated_notices.paginator.num_pages }}
+{% if user_paginated_notices.has_next %}
+    <a href="{% relative_url user_paginated_notices.next_page_number 'page' request.GET.urlencode %}"><button>Next page</button></a>
+{% endif %}
+</section>
+
 {% endblock content %}

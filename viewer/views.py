@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -73,8 +74,7 @@ class UsersNotices(ListView):
         context["types"] = Type.objects.order_by('name').all()
         context["conditions"] = Condition.objects.order_by('name').all()
         context["notices_user"] = context["notices_user"].filter(user=self.kwargs['pk'])
-        context["notices_user"] = context["notices_user"].filter(is_active=True).order_by('-pk')
-
+        context["notices_user"] = context["notices_user"].filter(is_active=True)
         search_input = self.request.GET.get("search") or ""
         category_input = self.request.GET.get("category") or ""
         type_input = self.request.GET.get("type") or ""
@@ -93,7 +93,12 @@ class UsersNotices(ListView):
             context["notices_user"] = context["notices_user"].filter(name__icontains=search_input)
 
         context["search_input"] = search_input
-        context["user_notices_count"] = context["notices_user"].count()
+        paginated_notices = Paginator(context["notices_user"], 4)
+        page_number = self.request.GET.get("page")
+        notice_page_obj = paginated_notices.get_page(page_number)
+        context["notices_user"] = notice_page_obj
+        context["user_paginated_notices"] = notice_page_obj
+
         return context
 
 
