@@ -116,11 +116,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-You need to have python 3.10 installed. Then:
-* pip
-  ```sh
-  pip install django pillow
-  ```
+You need to have python 3.10 and git installed.
 
 ### Installation
 
@@ -128,15 +124,23 @@ You need to have python 3.10 installed. Then:
    ```sh
    git clone https://github.com/po21om/django_the_notice.git
    ```
-2. Create database migrating models
+2. pip
+   ```sh
+   pip install -r requirements.txt
+   ```
+   or
+   ```sh
+   pip install django pillow
+   ```
+3. Create database migrating models
    ```sh
    python manage.py makemigrations manage.py migrate
    ```
-3. Start the server
+4. Start the server
    ```sh
    python manage.py runserver
    ```
-4. Go to http://localhost:8000/
+5. Go to http://localhost:8000/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -155,13 +159,14 @@ It could also be used for D&D players wanting to pass on or expand they figurine
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] MVP (Minimal Viable Product)
+- [x] MVP (Minimum Viable Product)
 - [x] Search
 - [x] Login / Logout back redirection
 - [ ] Pagination
+- [ ] Change password / Forgot password / Delete account
 - [ ] Code refactor with Accessibility in mind
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/po21om/django_the_notice/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
