@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-6lpq-2vz3(pz_ol_bl!=fh&^_1fq@d7p6g%1c7x708%uu#*wp="
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# gdy false - to podaje nam "404 page not found"
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
@@ -117,6 +118,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+#  aby static css i image files były udostępniane na serwerze
+# adresy po których ma szuklać pliów statycznych
 STATIC_URL = "viewer/static/"
 STATIC_ROOT = BASE_DIR / "viewer/static/viewer/"
 
@@ -125,6 +128,7 @@ STATIC_ROOT = BASE_DIR / "viewer/static/viewer/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+#  że ma korzystać z naszego customuser nie z standardowego
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 MEDIA_ROOT = BASE_DIR / 'media'

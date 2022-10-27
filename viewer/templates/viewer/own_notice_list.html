@@ -10,7 +10,7 @@
         <a href="{% url 'notice-create' %}" title="Add">
         <div class="table-cell cell-add">&#10010;</div></a>
     </div>
-
+<!-- jeśli nmotice ma zamnaczone is actuive ma normalne kolory jak nie jest wysdzarzone -->
 {% for notice in own_notices %}
     {% if notice.is_active %}
     <div class="table-row">
@@ -28,6 +28,7 @@
         >{{ notice }}</div></a>
         <a href="{% url 'notice-update' notice.id %}" title="Edit"><div class="table-cell cell-edit">&#x270E;
         </div></a>
+        <!-- zaciąga z vewer/urls -->
         <a href="{% url 'notice-delete' notice.id %}" title="Delete"><div
                 class="table-cell cell-delete">&#10006;
         </div></a>

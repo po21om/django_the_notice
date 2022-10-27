@@ -28,7 +28,7 @@
 .nav-bar li {
     display: inline;
 }
-
+/* klasa navbar - linki */
 .nav-bar a {
     display: block;
     color: var(--grey);

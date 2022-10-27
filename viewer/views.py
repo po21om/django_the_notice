@@ -10,6 +10,8 @@ from viewer.models import Notice, Category, Type, Condition
 # Create your views here.
 
 # Main page view only is_active=True
+
+# widok na mainpage
 class NoticeList(ListView):
     model = Notice
     context_object_name = "notices"
@@ -68,10 +70,13 @@ class UsersNotices(ListView):
     template_name = 'viewer/user_notices.html'
 
     def get_context_data(self, **kwargs):
+        # porządkowanie
         context = super().get_context_data(**kwargs)
         context["categories"] = Category.objects.order_by('name').all()
         context["types"] = Type.objects.order_by('name').all()
         context["conditions"] = Condition.objects.order_by('name').all()
+        # filtrowanie po pk ogłoszenia - zawężenie wiodoku do pozycju tego samego właściciela (more offers from...)
+        # -pk oznacza najświeżej dodane
         context["notices_user"] = context["notices_user"].filter(user=self.kwargs['pk'])
         context["notices_user"] = context["notices_user"].filter(is_active=True).order_by('-pk')
 
@@ -80,6 +85,7 @@ class UsersNotices(ListView):
         type_input = self.request.GET.get("type") or ""
         condition_input = self.request.GET.get("condition") or ""
 
+        # wyszukiwanie po kolejnych nie poustych - jak nieokreślone to idzie do nast ępnego itd
         if category_input:
             context["notices_user"] = context["notices_user"].filter(category=category_input)
 

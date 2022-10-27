@@ -22,12 +22,14 @@ from the_notice import settings
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # pusta ścieżka jak dałbym np a/ to byłoby np a/admin
     path("", include("accounts.urls")),
     path("", include("viewer.urls")),
+    #
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
     re_path(r'^viewer/static/viewer/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 
 ]
-
+# handlery nające obsłużyć - jak debugv w settings - tRue to nie zadziałają
 handler404 = 'viewer.views.error_404'
 handler500 = 'viewer.views.error_500'

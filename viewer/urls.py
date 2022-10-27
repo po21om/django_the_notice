@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
 from .views import NoticeList, NoticeDetail, NoticeCreate, NoticeUpdate, NoticeDelete, NoticeOwnList, UsersNotices
-
+#  zaciąga z viewer/views
 urlpatterns = [
     path("", NoticeList.as_view(), name="notices"),
     path("my/", NoticeOwnList.as_view(), name="own_notices"),

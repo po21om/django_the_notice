@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models import \
-    Model, CharField, ImageField, IntegerField, \
+    Model, CharField, ImageField, PositiveIntegerField, \
     DateField, BooleanField, ForeignKey, TextField, DO_NOTHING
 
 from accounts.models import CustomUser
